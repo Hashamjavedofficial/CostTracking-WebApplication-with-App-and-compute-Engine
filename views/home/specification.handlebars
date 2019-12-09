@@ -1,0 +1,257 @@
+<div class="modal fade" id="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">&times;</button>
+                <h3>Location:</h3>
+                <hr>
+            </div>
+
+            <div class="modal-body" style="height: 300px ;" id="modal-container">
+                <div id="map" style="height:100%"></div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-danger " data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <h2 class="text-center">Specification</h2>
+            <hr>
+            <div class="row">
+                <div class="col-lg-5"> <img src="/uploads/{{post.file}}" height="auto" width="100%"
+                        style="border-radius: 10px "> </div>
+                <div class="col-lg-1"> </div>
+                <div class="col-lg-6">
+                    <div class="row">
+
+                        <div class="fa fa-mobile-alt h4" style="float: left"></div>
+                        <div style="float: left;margin-left: 10px;">
+                            <label> Resolution</label>
+                            <p>{{post.resolution}}</p>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="fa fa-microchip h4" style="float: left"></div>
+                        <div style="float: left;margin-left: 10px;">
+                            <label>Memory</label>
+                            <p>{{post.memory}} GB</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="fa fa-camera h4" style="float: left"></div>
+                        <div style="float: left;margin-left: 10px;">
+                            <label>Camera</label>
+                            <p>{{post.camera}}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="fa fa-battery-full h4" style="float: left"></div>
+                        <div style="float: left;margin-left: 10px;">
+                            <label>Battery</label>
+                            <p>{{post.battery}} Mah</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="fa fa-money-check-alt h4" style="float: left"></div>
+                        <div style="float: left;margin-left: 10px;">
+                            <label>Price</label>
+                            <p>PKR {{post.price}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <h3>{{post.category.name}}</h3>
+            <h4>{{post.model}}</h4>
+
+
+
+        </div>
+        <div class="col-lg-6">
+
+            <h2 class="text-center">Shop Detail</h2>
+            <hr>
+            <div class="container" style="width: 80%;">
+
+
+                {{#each post.prices}}
+
+                <div class="row" id="box-value">
+                    <div class="col-lg-3">
+                        <center><img src="/uploads/{{user.file}}" width="80" height="80"
+                                style="border-radius:50%;max-width:100%; height:auto ">
+                        </center>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <p id="shopName"><span style="font: italic bold 15px/30px Georgia, serif; ">Shop</span>
+                            : {{user.shopName}}</p>
+                        <p><span style="font: italic bold 15px/30px Georgia, serif; ">Phone
+                                no:</span>{{user.phoneNumber}}</p>
+                        <p><span style="font: italic bold 15px/30px Georgia, serif; ">Address:</span> {{user.address}}
+                        </p>
+                        <p><span style="font: italic bold 15px/30px Georgia, serif; ">Price:</span> {{prices}} PKR</p>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <label>Shop Location!</label>
+                        <button onclick="showMap('{{ user._id }}')" data-target="#modal" data-toggle="modal"
+                            class="btn btn-primary btn-block">Show
+                            Map</button>
+                    </div>
+                </div>
+                <br>
+                {{/each}}
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/map.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASezW1ZC9NKmtiUwry9QEqv7NLMfOVZYc&callback=initMap" async
+    defer></script>
+
+
+
+
+
+
+
+{{!-- <div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <h2 class="text-center">Specification</h2>
+            <hr>
+            <div class="row">
+                <div class="col-lg-5"> <img src="/uploads/{{post.file}}" height="100%" width="100% "> </div>
+                <div class="col-lg-1"> </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="glyphicon glyphicon-book h4" style="float: left"></div>
+                        <div style="float: left;margin-left: 10px;">
+                            <label>Resolution</label>
+                            <p>{{post.resolution}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="glyphicon glyphicon-book h4" style="float: left"></div>
+                        <div style="float: left;margin-left: 10px;">
+                            <label>Memory</label>
+                            <p>{{post.memory}} GB</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="glyphicon glyphicon-book h4" style="float: left"></div>
+                        <div style="float: left;margin-left: 10px;">
+                            <label>Camera</label>
+                            <p>{{post.camera}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="glyphicon glyphicon-book h4" style="float: left"></div>
+                        <div style="float: left;margin-left: 10px;">
+                            <label>Battery</label>
+                            <p>{{post.battery}} mah</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <h3>{{post.company}}</h3>
+            <h4>{{post.model}}</h4>
+
+
+
+        </div>
+        <div class="col-lg-6">
+
+            <h2 class="text-center">Shop Detail</h2>
+            <hr>
+            <div class="container" style="width: 80%;">
+                <div class="row" id="box-value">
+                    <div class="col-lg-3">
+                        <center><img src="images/Member photo/20190219_205549.jpg" width="80" height="80"
+                                style="border-radius:50%; "></center>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label>SYED Mobile Shop</label>
+                        <p>0900-78601</p>
+                        <p>Mughalpura Lahore.</p>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <label>Distance From You</label>
+                        <input type="submit" name="submit" value="Show Map" class="btn btn-primary btn-block"
+                            data-target="#modal" data-toggle="modal">
+
+
+
+                    </div>
+                </div>
+                <br>
+                <div class="row" id="box-value1">
+                    <div class="col-lg-3">
+                        <center><img src="images/Member photo/20190219_205549.jpg" width="80" height="80"
+                                style="border-radius:50%; "></center>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label>SYED Mobile Shop</label>
+                        <p>0900-78601</p>
+                        <p>Mughalpura Lahore.</p>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <label>Distance From You</label>
+                        <input type="submit" name="submit" value="Show Map" class="btn btn-primary btn-block"
+                            data-target="#modal" data-toggle="modal">
+
+                    </div>
+                </div>
+                <br>
+                <div class="row" id="box-value2">
+                    <div class="col-lg-3">
+                        <center><img src="images/Member photo/20190219_205549.jpg" width="80" height="80"
+                                style="border-radius:50%; "></center>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label>SYED Mobile Shop</label>
+                        <p>0900-78601</p>
+                        <p>Mughalpura Lahore.</p>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <label>Distance From You</label>
+                        <input type="submit" name="submit" value="Show Map" class="btn btn-primary btn-block"
+                            data-target="#modal" data-toggle="modal">
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div> --}}

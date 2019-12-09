@@ -1,0 +1,39 @@
+<br>
+<div class="container" style="width:100%;">
+    <div class="row">
+
+        {{#each posts}}
+
+        {{#if status}}
+
+
+
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12"><br />
+            <div class="box text-center">
+                <div>
+                    <img src="/uploads/{{file}}" width="70px" height="100px" />
+                </div>
+                <br />
+                <p><strong>Company: {{category.name}}</strong></p>
+                <hr />
+                <h4><strong>{{model}}</strong></h4>
+                <p><strong>Price:</strong>PKR {{price}}</p>
+                <a href="/post/{{id}}" class="btn btn-primary">See Details &rarr;</a>
+                <br />
+                <br />
+            </div>
+
+
+        </div>
+        {{/if}}
+
+        {{/each}}
+
+
+
+    </div>
+
+
+
+</div>
+<br><br>
