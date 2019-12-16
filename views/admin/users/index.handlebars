@@ -1,0 +1,41 @@
+<h1>All posts</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Images</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+
+            <th>Verify Status</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        {{#each users}}
+        <tr>
+            <td>{{id}}</td>
+            <td><img style="height: 60px" src="/uploads/{{file}}" class="img-thumbnail"></td>
+            <td>{{name}}</td>
+            <td>{{email}}</td>
+            <td>{{address}}</td>
+
+            <td>{{verify}}</td>
+            <td><a href="/admin/users/view/{{id}}" method="get" class="btn btn-info">View</a></td>
+            <td>
+                <form action="/admin/users/{{id}}?_method=DELETE" method="post">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+
+            </td>
+
+
+
+        </tr>
+        {{/each}}
+    </tbody>
+
+
+</table>
