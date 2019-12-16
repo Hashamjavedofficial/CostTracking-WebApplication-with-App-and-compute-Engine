@@ -1,0 +1,103 @@
+{{!-- <div class="container">
+    <form action="/index" method="post">
+        <span class="border border-danger">
+
+
+        </span>
+        <div class="form-group">
+            <label for="">Name</label>
+            <h3>Hasham</h3>
+        </div>
+
+
+
+
+
+
+    </form> --}}
+
+
+
+<div class="container" style="width:40%; padding:20px;background: #eeeeee; border-radius: 10px;">
+    <form action="/admin/users/view/{{users.id}}?_method=PUT" method="post" enctype="multipart/form-data">
+
+        <h2>Registration:</h2>
+        <hr>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <input type="text" class="form-control" id="name" value="{{users.name}}" name="name" readonly>
+            </div>
+
+            <div class="col-lg-6">
+                <input type="text" class="form-control" id="shopName" value="{{users.shopName}}" name="shopName"
+                    readonly>
+            </div>
+        </div>
+        <br>
+
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <input type="number" class="form-control" id="phoneNumber" value="{{users.phoneNumber}}"
+                    name="phoneNumber" readonly>
+            </div>
+        </div>
+
+
+        <br>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <input type="email" readonly class="form-control" id="email" value="{{users.email}}" name="email">
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <input type="text" class="form-control" id="address" value="{{users.address}}" name="address" readonly>
+            </div>
+        </div>
+
+        <br>
+
+
+        <div class="row">
+            <div class="col-lg-5">
+                <input type="number" readonly class="form-control" id="long" name="long" value="{{users.long}}">
+            </div>
+
+            <div class="col-lg-4">
+                <input type="number" readonly class="form-control" id="lat" name="lat" value="{{users.lat}}">
+            </div>
+
+
+        </div>
+        <br>
+
+        <div class="form-group">
+
+            <label for="verify" class="form-check-label">
+
+                <input type="checkbox" name="verify" class="form-check-input" id="verify" {{#if users.verify}}
+                    checked="checked" {{/if}}>
+                Verify
+            </label>
+        </div>
+
+
+        <br>
+        <div class="row">
+            <div class="col-lg-12">
+                <button type="submit" class="btn btn-success">Verify</button>
+
+                <br>
+                <br>
+            </div>
+        </div>
+
+    </form>
+</div>
