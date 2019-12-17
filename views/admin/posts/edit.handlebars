@@ -1,0 +1,60 @@
+<h1>Edit Post</h1>
+<form action="/admin/posts/edit/{{post.id}}?_method=PUT" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+
+        <label for="model">Model</label>
+        <input type="text" name="model" class="form-control" id="model" value="{{post.model}}">
+    </div>
+
+    <div class="form-group">
+
+        <label for="file">Images</label>
+        <input type="file" accept='image/*' name="file" class="form-control">
+    </div>
+
+
+    <div class="form-group">
+
+        <label for="category">Category</label>
+        <select name="category" id="category" class="form-control">
+
+            {{#each categories}}
+            <option value="{{id}}">{{name}}</option>
+            {{/each}}
+
+        </select>
+    </div>
+
+
+
+
+    <div class="form-group">
+
+        <label for="price">Price</label>
+        <input type="number" name="price" class="form-control" id="price" value="{{post.price}}">
+    </div>
+    <div class="form-group">
+
+        <label for="resolution">Resolution</label>
+        <input type="text" name="resolution" class="form-control" id="resolution" value="{{post.resolution}}">
+    </div>
+    <div class="form-group">
+
+        <label for="memory">Memory</label>
+        <input type="number" name="memory" class="form-control" id="memory" value="{{post.memory}}">
+    </div>
+    <div class="form-group">
+
+        <label for="camera">Camera</label>
+        <input type="text" name="camera" class="form-control" id="camera" value="{{post.camera}}">
+    </div>
+
+    <div class="form-group">
+
+        <label for="battery">Battery</label>
+        <input type="number" name="battery" class="form-control" id="battery" value="{{post.battery}}">
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Submitt</button>
+</form>
